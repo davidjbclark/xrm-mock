@@ -4,29 +4,29 @@ export class XrmPromiseMock<T> implements Xrm.Async.PromiseLike<T> {
     constructor(promise: Promise<T>) {
         this.promise = promise;
     }
-
-
+  
+  
     public then<U>(onFulfilled?: (value: T) => U | Xrm.Async.PromiseLike<U>,
-                   onRejected?: (error: any) => U | Xrm.Async.PromiseLike<U> | void): Xrm.Async.PromiseLike<U> {
+                   onRejected?: (reason: any) => void | U | Xrm.Async.PromiseLike<void | U>): Xrm.Async.PromiseLike<U> {
         return new XrmPromiseMock<U>(this.promise.then(onFulfilled, onRejected) as Promise<U>);
     }
-
+  
     public fail<U>(onRejected?: (reason: Xrm.ErrorResponse) => U | Xrm.Async.PromiseLike<U>): Xrm.Async.PromiseLike<U> {
         return new XrmPromiseMock<U>(this.promise.catch(onRejected) as Promise<U>);
     }
-
+  
     public always<U>(alwaysCallback: () => U | Xrm.Async.PromiseLike<U>): Xrm.Async.PromiseLike<U> {
         return new XrmPromiseMock<U>(this.promise.finally(alwaysCallback) as unknown as Promise<U>);
     }
-
+  
     public catch<U>(onRejected?: (reason: Xrm.ErrorResponse) => U | Xrm.Async.PromiseLike<U>): Xrm.Async.PromiseLike<U> {
         return new XrmPromiseMock<U>(this.promise.catch(onRejected) as Promise<U>);
     }
-
+  
     public finally<U>(finallyCallback: () => U | Xrm.Async.PromiseLike<U>): Xrm.Async.PromiseLike<U> {
         return new XrmPromiseMock<U>(this.promise.finally(finallyCallback) as unknown as Promise<U>);
     }
-
+  
     /**
      * Creates a PromiseLike<T> that is resolved with the given value or the result of calling the given function, after a timeout.
      * @param value value or function that returns a value to resolve the PromiseLike<T> with.
@@ -43,7 +43,7 @@ export class XrmPromiseMock<T> implements Xrm.Async.PromiseLike<T> {
             }, timeout ?? 1);
         }));
     }
-
+  
     /**
      * Creates a PromiseLike<void> that is resolved after a timeout.
      * @param action The action to perform after the timeout.
@@ -60,4 +60,5 @@ export class XrmPromiseMock<T> implements Xrm.Async.PromiseLike<T> {
             }, timeout ?? 1);
         }));
     }
-}
+  }
+  
