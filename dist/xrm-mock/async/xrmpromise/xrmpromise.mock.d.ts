@@ -2,7 +2,7 @@
 export declare class XrmPromiseMock<T> implements Xrm.Async.PromiseLike<T> {
     private promise;
     constructor(promise: Promise<T>);
-    then<U>(onFulfilled?: (value: T) => U | Xrm.Async.PromiseLike<U>, onRejected?: (error: any) => U | Xrm.Async.PromiseLike<U> | void): Xrm.Async.PromiseLike<U>;
+    then<U>(onFulfilled?: (value: T) => U | Xrm.Async.PromiseLike<U>, onRejected?: (reason: any) => void | U | Xrm.Async.PromiseLike<void | U>): Xrm.Async.PromiseLike<U>;
     fail<U>(onRejected?: (reason: Xrm.ErrorResponse) => U | Xrm.Async.PromiseLike<U>): Xrm.Async.PromiseLike<U>;
     always<U>(alwaysCallback: () => U | Xrm.Async.PromiseLike<U>): Xrm.Async.PromiseLike<U>;
     catch<U>(onRejected?: (reason: Xrm.ErrorResponse) => U | Xrm.Async.PromiseLike<U>): Xrm.Async.PromiseLike<U>;
