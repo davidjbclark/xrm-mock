@@ -110,6 +110,3 @@ export { AppMock } from "./app/app.mock";
 export { KbSearchControlMock } from "./controls/kbsearchcontrol/kbsearchcontrol.mock";
 export { TimerControlMock} from "./controls/timercontrol/timercontrol.mock";
 export { XrmPromiseMock } from "./async/xrmpromise/xrmpromise.mock";
-export { OpenQuickCreateSuccessCallbackObjectMock } from "./async/openquickcreatesuccesscallbackobject/openquickcreatesuccesscallbackobject.mock";
-export { OfflineOperationSuccessCallbackObjectMock } from "./async/offlineoperationsuccesscallbackobject/offlineoperationsuccesscallbackobject.mock";
-export { OfflineErrorCallbackObjectMock } from "./async/offlineerrorcallbackobject/offlineerrorcallbackobject.mock";
