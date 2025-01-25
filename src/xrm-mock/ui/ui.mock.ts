@@ -11,7 +11,7 @@ export class UiMock implements Xrm.Ui {
     public navigation: Xrm.Controls.Navigation;
     public tabs: Xrm.Collection.ItemCollection<Xrm.Controls.Tab>;
     public quickForms: Xrm.Collection.ItemCollection<Xrm.Controls.QuickFormControl>;
-    public formNotifications: [{ message: string, level: Xrm.Page.ui.FormNotificationLevel, uniqueId: string }];
+    public formNotifications: [{ message: string, level: Xrm.FormNotificationLevel, uniqueId: string }];
 
     constructor(components: IUiComponents) {
         this.process = components.process;
@@ -24,7 +24,7 @@ export class UiMock implements Xrm.Ui {
         this.quickForms = components.quickForms || new ItemCollectionMock([]);
     }
 
-    public setFormNotification(message: string, level: Xrm.Page.ui.FormNotificationLevel, uniqueId: string): boolean {
+    public setFormNotification(message: string, level: Xrm.FormNotificationLevel, uniqueId: string): boolean {
         let formNotificationAlreadyExists = false;
         if (this.formNotifications && this.formNotifications.length) {
             formNotificationAlreadyExists = this._getFormNotificationExists(this.formNotifications, uniqueId);

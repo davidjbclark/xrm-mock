@@ -11,11 +11,11 @@ export declare class UiMock implements Xrm.Ui {
     quickForms: Xrm.Collection.ItemCollection<Xrm.Controls.QuickFormControl>;
     formNotifications: [{
         message: string;
-        level: Xrm.Page.ui.FormNotificationLevel;
+        level: Xrm.FormNotificationLevel;
         uniqueId: string;
     }];
     constructor(components: IUiComponents);
-    setFormNotification(message: string, level: Xrm.Page.ui.FormNotificationLevel, uniqueId: string): boolean;
+    setFormNotification(message: string, level: Xrm.FormNotificationLevel, uniqueId: string): boolean;
     clearFormNotification(uniqueId: string): boolean;
     close(): void;
     getFormType(): XrmEnum.FormType;
