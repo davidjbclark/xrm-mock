@@ -20,6 +20,10 @@ var ItemCollectionMock = /** @class */ (function () {
                     attribute = item;
                     break;
                 }
+                else if (item.getId !== undefined && item.getId() === param) {
+                    attribute = item;
+                    break;
+                }
             }
             return attribute || null;
         }

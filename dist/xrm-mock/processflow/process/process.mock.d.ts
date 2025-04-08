@@ -13,9 +13,9 @@ export declare class ProcessMock implements Xrm.ProcessFlow.Process {
     isRendered(): boolean;
 }
 export interface IProcessComponents {
-    id: string;
-    name: string;
-    stages: Xrm.Collection.ItemCollection<Xrm.ProcessFlow.Stage>;
-    status: Xrm.ProcessFlow.ProcessStatus;
-    rendered: boolean;
+    id?: string;
+    name?: string;
+    stages?: Xrm.Collection.ItemCollection<Xrm.ProcessFlow.Stage>;
+    status?: Xrm.ProcessFlow.ProcessStatus;
+    rendered?: boolean;
 }

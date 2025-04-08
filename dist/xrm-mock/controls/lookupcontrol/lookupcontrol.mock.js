@@ -51,7 +51,7 @@ var LookupControlMock = /** @class */ (function (_super) {
         this.filters.push({ filter: filter, entityLogicalName: entityLogicalName });
     };
     LookupControlMock.prototype.addCustomView = function (viewId, entityName, viewDisplayName, fetchXml, layoutXml, isDefault) {
-        if (isDefault && this.getDefaultView()) {
+        if (isDefault && this.views.filter(function (v) { return v.isDefault; }).length > 0) {
             throw new Error("Lookup Control cannot have more than one default view.");
         }
         this.views.push({
