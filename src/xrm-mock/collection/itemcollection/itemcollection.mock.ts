@@ -22,7 +22,10 @@ export class ItemCollectionMock<T> implements Xrm.Collection.ItemCollection<T> {
                 if (item.getName !== undefined && item.getName() === param) {
                     attribute = item;
                     break;
-                } else if 
+                } else if (item.getId !== undefined && item.getId() === param) {
+                    attribute = item;
+                    break;
+                }
             }
 
             return attribute || null;

@@ -40,6 +40,22 @@ describe("Xrm.Collection.ItemCollection Mock", () => {
         it("should return null if not found", () => {
             expect(itemCollection.get(-100)).toBeNull();
         });
+
+        it("should use getId if exists", () => {
+            const mockItem = {
+                getId: () => "2",
+            };
+            itemCollection.push(mockItem as any);
+            expect(itemCollection.get("2")).toBe(mockItem);
+        });
+
+        it("should use getName if exists", () => {
+            const mockItem = {
+                getName: () => "Test",
+            };
+            itemCollection.push(mockItem as any);
+            expect(itemCollection.get("Test")).toBe(mockItem);
+        });
     });
 
     describe("getLength", () => {
