@@ -53,7 +53,7 @@ export class LookupControlMock extends StandardControlMock<LookupControlMock,
 
     public addCustomView(viewId: string, entityName: string, viewDisplayName: string, fetchXml: string,
                          layoutXml: string, isDefault: boolean): void {
-        if (isDefault && this.getDefaultView()) {
+        if (isDefault && this.views.filter((v) => v.isDefault).length > 0) {
             throw new Error("Lookup Control cannot have more than one default view.");
         }
 
