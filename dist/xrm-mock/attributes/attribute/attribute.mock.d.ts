@@ -1,7 +1,7 @@
 /// <reference types="xrm" />
 import { ItemCollectionMock } from "../../collection/itemcollection/itemcollection.mock";
 import { StandardControlMock } from "../../controls/standardcontrol/standardcontrol.mock";
-export type AttributeReturnType = boolean | Date | number | Xrm.LookupValue[] | string | null;
+export declare type AttributeReturnType = boolean | Date | number | Xrm.LookupValue[] | string | null;
 export declare class AttributeMock<TControl extends StandardControlMock<TControl, TAttribute, TValue>, TAttribute extends AttributeMock<TControl, TAttribute, TValue>, TValue extends AttributeReturnType> implements Xrm.Attributes.Attribute {
     attributeType: Xrm.Attributes.AttributeType;
     controls: ItemCollectionMock<TControl>;

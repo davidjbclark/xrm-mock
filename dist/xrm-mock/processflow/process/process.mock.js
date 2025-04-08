@@ -6,8 +6,12 @@ var ProcessMock = /** @class */ (function () {
         this.id = components.id;
         this.name = components.name;
         this.stages = components.stages;
+        this.status = components.status;
         this.rendered = components.rendered;
     }
+    ProcessMock.prototype.getStatus = function () {
+        return this.status;
+    };
     ProcessMock.prototype.getId = function () {
         return this.id;
     };

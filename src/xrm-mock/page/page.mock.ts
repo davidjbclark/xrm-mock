@@ -9,7 +9,7 @@ export class PageMock implements Xrm.FormContext {
         this.ui = formContext.ui;
     }
 
-    public getAttribute<T extends Xrm.Attributes.Attribute>(attributeNameOrIndex: number | string): T;
+    public getAttribute<T extends Xrm.Attributes.Attribute>(attributeNameOrIndex: number | string): T | null;
     public getAttribute<T extends Xrm.Attributes.Attribute>(delegateFunction?: Xrm.Collection.MatchingDelegate<T>): T[];
 
     public getAttribute<T extends Xrm.Attributes.Attribute>(param?: number | string |
@@ -26,8 +26,8 @@ export class PageMock implements Xrm.FormContext {
         throw new Error(`Collection.Get called with unknown parameter type: ${typeof param}`);
     }
 
-    public getControl<T extends Xrm.Controls.Control>(controlNameOrIndex: string | number): T;
-    public getControl<T extends Xrm.Controls.Control>(delegateFunction?: Xrm.Collection.MatchingDelegate<T>): T[];
+    public getControl<T extends Xrm.Controls.Control>(controlNameOrIndex: string | number): T | null;
+    public getControl<T extends Xrm.Controls.Control>(delegateFunction?: Xrm.Collection.MatchingDelegate<Xrm.Controls.Control>): T[];
 
     public getControl<T extends Xrm.Controls.Control>(param?: number | string |
         Xrm.Collection.MatchingDelegate<T>): T | T[] {

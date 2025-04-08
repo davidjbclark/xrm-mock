@@ -14,20 +14,22 @@ describe("Xrm.ProcessFlow.ProcessManager Mock", () => {
     beforeEach(() => {
         const firstNameStep = new StepMock("First Name", "firstname", false);
         const lastNameStep = new StepMock("Last Name", "lastname", false);
-        stage1 = new StageMock("6001", "Start", "active", null, [firstNameStep]);
-        stage2 = new StageMock("6002", "Finish", "inactive", null, [lastNameStep]);
+        stage1 = new StageMock("6001", "Start", "active", undefined, [firstNameStep]);
+        stage2 = new StageMock("6002", "Finish", "inactive", undefined, [lastNameStep]);
 
         process1 = new ProcessMock({
             id: "4444",
             name: "Sales Process",
             rendered: true,
             stages: new ItemCollectionMock<StageMock>([stage1, stage2]),
+            status: "active",
         });
         process2 = new ProcessMock({
             id: "5555",
             name: "Service Process",
             rendered: false,
             stages: new ItemCollectionMock<StageMock>([stage1, stage2]),
+            status: "finished",
         });
         processManager = new ProcessManagerMock([process1, process2]);
     });

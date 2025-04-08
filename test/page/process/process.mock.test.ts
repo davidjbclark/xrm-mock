@@ -9,14 +9,15 @@ describe("Xrm.ProcessFlow.Process Mock", () => {
     beforeEach(() => {
         const firstNameStep = new StepMock("First Name", "firstname", false);
         const lastNameStep = new StepMock("Last Name", "lastname", false);
-        const stage1 = new StageMock("6001", "Start", "active", null, [firstNameStep]);
-        const stage2 = new StageMock("6002", "Finish", "active", null, [lastNameStep]);
+        const stage1 = new StageMock("6001", "Start", "active", undefined, [firstNameStep]);
+        const stage2 = new StageMock("6002", "Finish", "active", undefined, [lastNameStep]);
 
         process = new ProcessMock({
             id: "4444",
             name: "Sales Process",
             rendered: true,
             stages: new ItemCollectionMock<Xrm.ProcessFlow.Stage>([stage1, stage2]),
+            status: "active",
         });
     });
 
@@ -44,5 +45,9 @@ describe("Xrm.ProcessFlow.Process Mock", () => {
         const stages = process.getStages();
         expect(stages).toBeDefined();
         expect(stages.getLength()).toBe(2);
+    });
+
+    it("should return status", () => {
+        expect(process.getStatus()).toBe("active");
     });
 });
